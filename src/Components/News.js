@@ -1,7 +1,19 @@
 import React, { Component } from "react";
 import Nitems from "./Nitems";
 import Loading from "./Loading";
+import './Font.css'
+import PropTypes from 'prop-types'
+
+
 export class News extends Component {
+  static defaultProps={
+    country: "in",
+    category: "general"
+  }
+  static propTypes={
+    country: PropTypes.string,
+    category: PropTypes.string
+  }
   constructor() {
     super();
     console.log("Hii this is a constructor");
@@ -13,7 +25,7 @@ export class News extends Component {
   }
   async componentDidMount() {
     let url =
-      "https://newsapi.org/v2/top-headlines?country=in&apiKey=c7908fc25bbc49589fcaedcedfb2e114&pagesize=12";
+      `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=c7908fc25bbc49589fcaedcedfb2e114&pagesize=12`;
     this.setState({loading: true})
     let data = await fetch(url);
     let parsedata = await data.json();
@@ -25,7 +37,7 @@ export class News extends Component {
     });
   }
   previouspage = async () => {
-    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=c7908fc25bbc49589fcaedcedfb2e114&page=${
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}$apiKey=c7908fc25bbc49589fcaedcedfb2e114&page=${
       this.state.page - 1
     }&pagesize=12`;
     this.setState({loading: true})
@@ -44,7 +56,7 @@ export class News extends Component {
       
     } 
     else {
-      let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=c7908fc25bbc49589fcaedcedfb2e114&page=${
+      let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=c7908fc25bbc49589fcaedcedfb2e114&page=${
         this.state.page + 1
       }&pagesize=12`;
       
@@ -62,7 +74,7 @@ export class News extends Component {
   render() {
     return (
       <div className="container ">
-        <h3 className="my-3" className="text-center" style={{margin: "18px 0px", fontFamily:"'Gluten', cursive;"}}>Top Headlines 💥</h3>
+        <h3 className="my-3" className="text-center" style={{margin: "18px 0px", fontFamily:" Permanent Marker", fontSize: "45px"}}>Top Headlines 💥</h3>
         {this.state.loading && <Loading/>}
         <div className="row">
           {!this.state.loading && this.state.articles.map((element) => {

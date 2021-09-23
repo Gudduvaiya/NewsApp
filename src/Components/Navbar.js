@@ -1,4 +1,10 @@
 import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 export class Navbar extends Component {
   render() {
@@ -9,9 +15,9 @@ export class Navbar extends Component {
           style={{ backgroundColor: "rgb(249 130 45)" }}
         >
           <div className="container-fluid">
-            <a className="navbar-brand" href="/">
+            <Link className="navbar-brand" to="/">
               The_ADP
-            </a>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -26,19 +32,44 @@ export class Navbar extends Component {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/">
-                    Home
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/">
+                  <Link className="nav-link" to="/">
                     ADP-Special
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/about">
+                  <Link className="nav-link" to="/Science">
+                    Science
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/Business">
+                    Business
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/Entertainment">
+                    Entertainment
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/Health">
+                    Health
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/Sports">
+                    Sports
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/Technology">
+                    Technology
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/about">
                     About
-                  </a>
+                  </Link>
                 </li>
               </ul>
               <form className="d-flex">
