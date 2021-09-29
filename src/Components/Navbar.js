@@ -11,7 +11,7 @@ export class Navbar extends Component {
     return (
       <div>
         <nav
-          className="navbar navbar-expand-lg navbar-light "
+          className="navbar fixed-top navbar-expand-lg navbar-light "
           style={{ backgroundColor: "rgb(249 130 45)" }}
         >
           <div className="container-fluid">

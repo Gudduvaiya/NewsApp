@@ -9,6 +9,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Footer from './Components/Footer'
 
 export class App extends Component {
   
@@ -44,6 +45,7 @@ export class App extends Component {
           <Route exact path="/about"><News setProgress={this.setProgress} apikey={this.apikey} key="general" country="in" category="general"/></Route>
         </Switch>
         </Router>
+        <Footer/>
       </div>
     )
   }

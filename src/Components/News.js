@@ -81,10 +81,10 @@ export class News extends Component {
   render() {
     return (
       <div className="container ">
-        <h3 className="my-3" className="text-center" style={{margin: "18px 0px", fontFamily:" Permanent Marker", fontSize: "45px"}}>Top Headlines 💥</h3>
+        <h3 className="my-3" className="text-center" style={{margin: "18px 0px", fontFamily:" Permanent Marker", fontSize: "45px", marginTop: "60px"}}>Top Headlines 💥</h3>
         {this.state.loading && <Loading/>}
         <div className="row">
-          {!this.state.loading && this.state.articles.map((element) => {
+          {!this.state.loading && this.state.articles && this.state.articles.map((element) => {
             return (
               <div className="col-md-4" key={element.url}>
                 <Nitems
@@ -109,10 +109,11 @@ export class News extends Component {
             type="button"
             class="btn btn-danger"
             onClick={this.previouspage}
+            style={{marginBottom: "55px"}}
           >
             👈 Previous
           </button>
-          <button disabled={(this.state.page + 1 > Math.ceil(this.state.totalarticles / 12))} type="button" class="btn btn-danger" onClick={this.nextpage}>
+          <button disabled={(this.state.page + 1 > Math.ceil(this.state.totalarticles / 12))} type="button" class="btn btn-danger" onClick={this.nextpage} style={{marginBottom: "55px"}}>
             Next 👉
           </button>
         </div>
